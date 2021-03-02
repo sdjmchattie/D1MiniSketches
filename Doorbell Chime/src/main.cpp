@@ -3,9 +3,8 @@
 #include <WiFiClient.h>
 #include <ESP8266HTTPClient.h>
 
-// Network SSID
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_WIFI_PASSWORD";
+// Defines the ssid and password variables as const char*
+#include "WiFiSettings.h"
 
 unsigned long triggerInterval = 10000;
 unsigned long lastTrigger = 0;
@@ -55,7 +54,7 @@ void loop() {
 
       WiFiClient client;
       HTTPClient http;
-      http.begin(client, "http://pi-zero.local:15927");
+      http.begin(client, "http://pi-server.local:15927");
       http.GET();
       http.end();
 
